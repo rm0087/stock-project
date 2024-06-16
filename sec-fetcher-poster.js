@@ -9,30 +9,29 @@ function getCompanies(){
     .then((response)=>{return response.json();})
     .then(companies => {
         companies.data.forEach((company)=>{
-            let companyArray = []  
-            const companyObjects ={ 
+            //let companyArray = []  
+            let companyObjects ={ 
                 id:company[0],
                 name:company[1],
                 ticker:company[2],
                 exchange:company[3]
             };
-            let testObject = {};
-            companyArray.push(companyObjects)
+            //let testObject = {};
+            companyProfilesLocal.push(companyObjects);
             
-            testObject[company[1]] = companyArray
             
-            companyProfilesLocal.push(testObject)
+           
         
         })//END OF LOOP
         testObject2={companyProfilesLocal}
         console.log(testObject2)
-        
-        postCompanies();
+        //console.log(companyProfilesLocal);
+        //postCompanies();
     });//END OF FETCH
 }
 
 const main = ()=>{
-    //getCompanies();
+    getCompanies();
 }
 main()
 

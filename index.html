@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Stocks</title>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Stocks</title>
+    </head>
 
-</head>
+    <body>
+        <div id = "container">
+            <div id = "input-div">
+                <form id ="input-form">
+                    <h2>Input keyword</h2>
+                    <input id ="keyword-input" type = "text">
+                </form>
+            </div>
 
-<body>
+            <div id = "top-ten-div">
+                <h2>All Keywords</h2>
+                <p id = "keywords-all"></p>
+                
+                
+                
+                <!-- <table id = "all-stock-list">
+                    <tr><th>CIK</th><th>Name</th><th>Ticker</th><th>Exchange</th></tr>
+                </table> -->
+            </div>
+        </div>
+    </body>
 
-<div id = "input-div">
-<form id ="input-form">
-<h2>Input keyword</h2>
-<input id ="ticker-input" type = "text">
-</form>
-<div id = "top-ten-div">
-    <h2>Top 10 Most Valuable Publically Traded Companies</h2>
-    <table id = "all-stock-list">
-        <tr><th>CIK</th><th>Name</th><th>Ticker</th><th>Exchange</th></tr>
-    </table>
-</div>
-</body>
-<script defer type="module" src="./index.js"></script>
+    <script defer type="module" src="./index.js"></script>
 </html>
