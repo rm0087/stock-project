@@ -37,3 +37,9 @@ h2 {
 #keyword-h2{
     color: red;
 }
+
+#stock-info{
+    color:#ffffff;
+    font-weight:bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

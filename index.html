@@ -10,34 +10,38 @@
         <div id = "container">
             <div id = "input-div">
                 <form id ="input-form">
-                    <h2>Input keyword</h2>
+                    <h2>Select your input:</h2>
+                    
+                    <input id ="keyword-input" type = "text">
                     <select id ="mode-input">
-                        <option value ="Stocks">Stocks</option>
-                        <option value ="Keywords">Keywords</option>
+                        <option value ="keywords-option">Keywords</option>
+                        <option value ="stocks-option">Stocks</option>
                     </select>
-                    <input id ="keyword-input" type = "text" value ="">
-                    <!-- <input id ="sub-but" type = "button" value ="Submit" onclick="handleSubmit()"> -->
                 </form>
+                <form id ="ticker-form">
+                    <input id ="ticker-input" type = "text" value ="">
+                </form>
+                <div id ="stock-selected">
+                    <p id ="stock-info"></p>
+                    <p id ="stock-keywords"></p>
+                </div>
+                <br>
+                <br>
+
                 <h2 id="keyword-h2">All Keywords</h2>
             </div>
             
             <div id = "keywords-div">
-                
                 <form id = "keywords-form">
+                    <input type="submit" value="Apply Selected Keywords"></input>
                     <ul id = "keywords-list">
-                          
                     </ul>
-
                 </form>
-                
-                
-                
-               
             </div>
-            <div id ="filler"></div>
-            </div>
+            
+            <div id ="filler">
+            </div>    
         </div>
     </body>
-
     <script defer type="module" src="./index.js"></script>
 </html>
