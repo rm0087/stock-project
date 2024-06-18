@@ -1,0 +1,39 @@
+body{
+    background-color: #0A2347;
+    color: #FFFFFF;
+}
+
+form{
+    color: #000000;
+    
+}
+
+h2{
+    color:#FFFFFF;
+}
+
+#keywords-div{
+    overflow: auto;
+    text-wrap:wrap;
+    width: 10%;
+    text-wrap:nowrap;
+    overflow:visible;
+}
+#keywords-list{
+    display:inline-block;
+    white-space: nowrap;
+}
+
+label {
+    color: #FFFFFF;
+    font-weight:bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#keyword-h2{
+    color: red;
+}

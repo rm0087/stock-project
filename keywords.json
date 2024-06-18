@@ -1,9 +1,6 @@
 {
   "keywords": [
     {
-      "id": "test"
-    },
-    {
       "id": "American"
     },
     {
@@ -22,9 +19,6 @@
       "id": "Japanese"
     },
     {
-      "id": "test"
-    },
-    {
       "id": "Manufacturing"
     },
     {
@@ -32,6 +26,33 @@
     },
     {
       "id": "Airline"
+    },
+    {
+      "id": "Tech"
+    },
+    {
+      "id": "Steel"
+    },
+    {
+      "id": "Shipping"
+    },
+    {
+      "id": "Trucking"
+    },
+    {
+      "id": "Defense"
+    },
+    {
+      "id": "Energy"
+    },
+    {
+      "id": "Electric vehicles"
+    },
+    {
+      "id": "tet"
+    },
+    {
+      "id": "test"
     }
   ]
 }

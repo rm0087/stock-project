@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Stocks</title>
-
+        <link rel="stylesheet" href = "style.css">
     </head>
 
     <body>
@@ -11,19 +11,30 @@
             <div id = "input-div">
                 <form id ="input-form">
                     <h2>Input keyword</h2>
-                    <input id ="keyword-input" type = "text">
+                    <select id ="mode-input">
+                        <option value ="Stocks">Stocks</option>
+                        <option value ="Keywords">Keywords</option>
+                    </select>
+                    <input id ="keyword-input" type = "text" value ="">
+                    <!-- <input id ="sub-but" type = "button" value ="Submit" onclick="handleSubmit()"> -->
                 </form>
+                <h2 id="keyword-h2">All Keywords</h2>
             </div>
+            
+            <div id = "keywords-div">
+                
+                <form id = "keywords-form">
+                    <ul id = "keywords-list">
+                          
+                    </ul>
 
-            <div id = "top-ten-div">
-                <h2>All Keywords</h2>
-                <p id = "keywords-all"></p>
+                </form>
                 
                 
                 
-                <!-- <table id = "all-stock-list">
-                    <tr><th>CIK</th><th>Name</th><th>Ticker</th><th>Exchange</th></tr>
-                </table> -->
+               
+            </div>
+            <div id ="filler"></div>
             </div>
         </div>
     </body>

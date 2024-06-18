@@ -1,43 +1,33 @@
 const companyProfilesLocal = [];
 const topTen = [];
-
 let testObject2 = {};
 
+main()
 
 function getCompanies(){
     fetch ("https://corsproxy.io/?https%3A%2F%2Fwww.sec.gov%2Ffiles%2Fcompany_tickers_exchange.json")
     .then((response)=>{return response.json();})
     .then(companies => {
         companies.data.forEach((company)=>{
-            //let companyArray = []  
-            let companyObjects ={ 
+             let companyObjects ={ 
                 id:company[0],
                 name:company[1],
                 ticker:company[2],
                 exchange:company[3]
             };
-            //let testObject = {};
             companyProfilesLocal.push(companyObjects);
-            
-            
-           
-        
         })//END OF LOOP
         testObject2={companyProfilesLocal}
         console.log(testObject2)
-        //console.log(companyProfilesLocal);
-        //postCompanies();
     });//END OF FETCH
 }
 
 const main = ()=>{
     getCompanies();
 }
-main()
 
 function postCompanies(){
-   
-    try {
+   try {
         fetch("http://localhost:3000/companies", {
             method: "POST",
             headers: {
@@ -50,7 +40,6 @@ function postCompanies(){
         } catch (error) {
             console.error(error);
         };
-    
 }
 
 
