@@ -1,3 +1,4 @@
+//must run json-server for COMPANIES.DB on port 3001, and KEYWORDS.DB on port 3000. Must run both simultaneously.
 
 getKeywordList()
 
