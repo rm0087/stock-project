@@ -1,3 +1,4 @@
+
 getKeywordList()
 
 async function getKeywordList(){
@@ -5,7 +6,7 @@ async function getKeywordList(){
         const response = await fetch("http://localhost:3000/keywords");
         const keywords = await response.json();
         keywords.forEach((keyword)=>{
-            //getStocks();
+            // getStocks();
             createNewCheckBox(keyword)});
     } catch (error) {
         console.error(error);
@@ -92,8 +93,9 @@ async function getStocks(event){
         const response = await fetch("http://localhost:3001/companies");
         const companies = await response.json();
     
-        selectedCompany = companies.find((company)=> company.ticker.toString().toLowerCase() === event.target.value.toString().toLowerCase());
-        document.querySelector("#stock-info").textContent = selectedCompany.name.toString();
+        selectedCompany = companies.find((company)=> company.ticker.toLowerCase() === event.target.value.toLowerCase());
+        document.querySelector("#stock-info").textContent = selectedCompany.name;
+        document.querySelector("#stock-keywords").textContent = selectedCompany.keywords;
         
         stockInput.reset();
     } catch (error) {
@@ -106,23 +108,40 @@ let selectedCompany={};
 const applyKeywords = document.querySelector("#keywords-form")
 applyKeywords.addEventListener("submit", (event)=>{
     event.preventDefault();
-    pushKeywords(event)
+    pushKeywords()
 })
     
-function pushKeywords(event){
+function pushKeywords(){
     selectedCompany.keywords = [];
     let nodeList = document.querySelectorAll('input[type=checkbox]:checked');
     for (let i=0;i<nodeList.length;i++){
         let item = nodeList[i];
-        if (selectedCompany.ticker != undefined){
-            selectedCompany.keywords.push(item.value.toString())
+        if (selectedCompany.ticker != undefined){selectedCompany.id=parseInt(selectedCompany.id);
+            selectedCompany.keywords.push(item.value)
         }else{}
-    }
+    } applyKeywordToDb()
     applyKeywords.reset();
-    document.querySelector("#stock-keywords").textContent = selectedCompany.keywords;
-    console.log(selectedCompany.keywords)
 }
 
+async function applyKeywordToDb(){
+    console.log(selectedCompany);
+    const settings = {
+        method: "PATCH",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(selectedCompany),
+    } 
+    try {   
+        const response = await fetch(`http://localhost:3001/companies/${selectedCompany.id}`,settings)
+        const keywordResponse = await response.json()
+        console.log(`Added keywords to ${keywordResponse.name} DB entry successfully!`);
+        document.querySelector("#stock-keywords").textContent = keywordResponse.keywords;
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 
 
