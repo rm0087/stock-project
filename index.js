@@ -1,27 +1,45 @@
 //must run json-server for COMPANIES.DB on port 3001, and KEYWORDS.DB on port 3000. Must run both simultaneously.
+let localKeywords = []; //Modified in: getKeywordList()
+let localCompanies = []; //Modified in: getStocks()
+let foundCompany = {}; //Modified in: getStocks(), pushKeywords()
+
+const keywordFormElement = document.querySelector("#keywords-form");
+const keywordInputElement = document.querySelector("#keyword-input");
+const keywordInput = document.querySelector("#input-form");
+const stockInput = document.querySelector("#ticker-form");
+const applyKeywords = document.querySelector("#keywords-form");
+const keywordsList = document.querySelectorAll("ul")
 
 getKeywordList()
+newKeywordSubmission()
+applyKeywordsForm();
 
 async function getKeywordList(){
+    applyKeywords.innerHTML = "";
+    localKeywords =[];
+    const applyKeywordButton = document.createElement(`input`)
+        applyKeywordButton.value = "Apply Selected Keywords to Company"
+        applyKeywordButton.type = "submit";
+        applyKeywords.append(applyKeywordButton);
     try {
-        const response = await fetch("http://localhost:3000/keywords");
-        const keywords = await response.json();
-        keywords.forEach((keyword)=>{
-            // getStocks();
-            createNewCheckBox(keyword)});
+        const getResponse = await fetch("http://localhost:3000/keywords");
+        const getKeywords = await getResponse.json();
+        getKeywords.forEach((keyword)=>{
+            localKeywords.push(keyword);
+        }); 
+        createNewCheckBox()
     } catch (error) {
         console.error(error);
     }
 }
 
-const keywordInput = document.querySelector("#input-form")
-keywordInput.addEventListener("submit", handleSubmit)
-
-function handleSubmit(event){
-    event.preventDefault();
-    let keywordObj = {id:""};
-    inputKeyword(keywordObj);
-    keywordInput.reset();
+function newKeywordSubmission(){
+    keywordInput.addEventListener("submit", (keywordSubmission)=>{
+        keywordSubmission.preventDefault();
+        let keywordObj = {id:keywordInputElement.value};
+        postResults(keywordObj);
+        keywordInput.reset();
+    });
 }
 
 async function postResults(keywordPost){
@@ -37,105 +55,78 @@ async function postResults(keywordPost){
         const response = await fetch("http://localhost:3000/keywords",settings)
         const keywordResponse = await response.json()
         console.log(`Added keyword "${keywordResponse.id}" successfully!`);
-        updateList(keywordResponse)
+        getKeywordList();
        
     } catch (error) {
         console.error(error)
     }
 }
 
-function inputKeyword(keywordInput){
-    keywordInput.id = document.querySelector("#keyword-input").value;
-    postResults(keywordInput);
-    
+function createNewCheckBox(){
+    localKeywords.forEach((localKeyword)=>{
+        const newCheckBox = document.createElement("input");
+        const newLabel = document.createElement("label");
+        const newList = document.createElement("ul");
+
+        newList.id = "keyword"
+        newCheckBox.type = "checkbox";
+        newCheckBox.value = localKeyword.id;
+        newLabel.id = localKeyword.id
+        newLabel.textContent = localKeyword.id
+        
+        newLabel.append(newCheckBox)
+        newList.append(newLabel)
+        document.querySelector("#keywords-form").append(newList);
+    });
 }
 
-function updateList(updatedKeyword){
-    createNewCheckBox(updatedKeyword);
-}
-
-function createNewCheckBox(checkboxKeyword){
-    const newCheckBox = document.createElement("input");
-    const newLabel = document.createElement("label");
-    const newList = document.createElement("ul");
+stockInput.addEventListener("submit", (submittedTicker)=>{
+    submittedTicker.preventDefault();
+    submittedTicker.target.value = document.querySelector("#ticker-input").value;
+    getStocks(submittedTicker);
     
-    newCheckBox.type = "checkbox";
-    newCheckBox.value = checkboxKeyword.id;
-    
-    newLabel.append(newCheckBox)
-    newList.append(newLabel)
-    newLabel.append(checkboxKeyword.id)
-    document.querySelector("#keywords-form").append(newList);
-}
-
-const modeInput = document.querySelector("#mode-input");
-modeInput.addEventListener("input", (event)=>{
-    const tickerInput = document.querySelector("#ticker-input");
-    const keywordInput = document.querySelector("#keyword-input");
-    if (modeInput.value === "stocks-option"){
-        keywordInput.disabled = true; tickerInput.disabled = false;
-    } else {tickerInput.disabled = true; keywordInput.disabled = false}
-    console.log(modeInput.value)
 })
 
-const stockInput = document.querySelector("#ticker-form")
-stockInput.addEventListener("submit", (event)=>{
-    event.preventDefault();
-    event.target.value = document.querySelector("#ticker-input").value;
-    getStocks(event);
-})
-
-document.querySelector("#keyword-h2").addEventListener("click", (event)=>{
-    alert("Please select a keyword(s)")
-})
-
-async function getStocks(event){
+async function getStocks(submittedTicker){
     try {
         const response = await fetch("http://localhost:3001/companies");
-        const companies = await response.json();
-    
-        selectedCompany = companies.find((company)=> company.ticker.toLowerCase() === event.target.value.toLowerCase());
-        document.querySelector("#stock-info").textContent = selectedCompany.name;
-        document.querySelector("#stock-keywords").textContent = selectedCompany.keywords;
-        
+        const conRes = await response.json();
+        localCompanies = conRes
+        foundCompany = localCompanies.find((company)=>
+            company.ticker.toLowerCase() === submittedTicker.target.value.toLowerCase())
         stockInput.reset();
+        document.querySelector("#stock-info").textContent = foundCompany.name;
+        document.querySelector("#stock-keywords").textContent = foundCompany.keywords;
     } catch (error) {
         console.error(error);
     } 
 }
 
-let selectedCompany={};
+function applyKeywordsForm(){
+    applyKeywords.addEventListener("submit", (event)=>{
+        event.preventDefault();
+        pushKeywords()
+    })
+}
 
-const applyKeywords = document.querySelector("#keywords-form")
-applyKeywords.addEventListener("submit", (event)=>{
-    event.preventDefault();
-    pushKeywords()
-})
-    
 function pushKeywords(){
-    selectedCompany.keywords = [];
     let nodeList = document.querySelectorAll('input[type=checkbox]:checked');
-    for (let i=0;i<nodeList.length;i++){
-        let item = nodeList[i];
-        if (selectedCompany.ticker != undefined){selectedCompany.id=parseInt(selectedCompany.id);
-            selectedCompany.keywords.push(item.value)
-        }else{}
-    } applyKeywordToDb()
+    nodeList.forEach((keyword)=> foundCompany.keywords.push(keyword.value))
+    applyKeywordToDb()
     applyKeywords.reset();
 }
 
 async function applyKeywordToDb(){
-    console.log(selectedCompany);
     const settings = {
         method: "PATCH",
         headers:{
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(selectedCompany),
+        body: JSON.stringify(foundCompany),
     } 
     try {   
-        const response = await fetch(`http://localhost:3001/companies/${selectedCompany.id}`,settings)
+        const response = await fetch(`http://localhost:3001/companies/${foundCompany.id}`,settings)
         const keywordResponse = await response.json()
         console.log(`Added keywords to ${keywordResponse.name} DB entry successfully!`);
         document.querySelector("#stock-keywords").textContent = keywordResponse.keywords;
@@ -144,23 +135,6 @@ async function applyKeywordToDb(){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// function getKeywordListSynchronous(){
-//     fetch ("http://localhost:3000/keywords")
-//     .then((response)=>{return response.json();})
-//     .then(keywords =>{
-//         keywords.forEach((keyword)=>{
-//             createNewCheckBox(keyword);
-//         })
-//     })
-// }
+document.querySelector("#keyword-h2").addEventListener("click", (event)=>{
+    alert("Please select a keyword(s)")
+})

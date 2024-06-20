@@ -43,3 +43,18 @@ h2 {
     font-weight:bold;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+#test{
+    display: inline-block;
+    /* flex-direction:row;
+    flex-wrap:wrap; */
+}
+
+#container{
+    
+}
+
+.msg{
+    color:#ffffff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
