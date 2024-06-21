@@ -1,6 +1,122 @@
+#header-div{
+    background-color: #000000;
+    /* vertical-align:top; */
+    position: relative; 
+    padding:25px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+button {
+    background-color: #1f77a0;
+    border: none;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: 16px 0 !important;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 24px;
+}
+
+button:hover {
+    background-color: #04AA6D; /* Green */
+    color: white;
+  }
+
+#titles{
+    margin-left:128px;
+}
+
+#h1-title{
+    margin-bottom:8px;
+    font-size: 48px;
+}
+#subtitle{
+    margin-top: 8px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body{
     background-color: #0A2347;
     color: #FFFFFF;
+}
+
+#container{
+    padding-left: 50px;
+    padding-right: 50px;
+    /* padding-top: 100px; */
+    overflow: visible;
+    margin-top: 25px;
+}
+
+#ticker-input{
+    margin-right:10px;
+    margin-top: 10px;
+
+}
+
+#stock-selected{
+        
+}
+#stock-info{
+    color:#ffffff;
+    font-weight:bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    margin-top:0px;
+
+}
+
+#keywords-div{
+    height:600px;
+    /* justify-content:center;
+    align-items: center; */
+    
+}
+
+#keywords-list{
+    display:flex;
+    white-space: nowrap;
+}
+
+#list-form-div{
+    height:200px;
+}
+
+#info-div{
+    margin-top:25px;
+    margin-bottom:300px;
+}
+
+#keyword-input{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#input-form{
+    justify-content:center;
+    display: flex;
+    margin-bottom:8px
+}
+
+#keywords-form{
+    /* height:200px; */
+    display:flex;
+    /* align-items: flex-start; */
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    
+}
+
+#keyword{
+    padding-left:20px;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 
 form{
@@ -10,18 +126,7 @@ form{
 
 h2{
     color:#FFFFFF;
-}
-
-#keywords-div{
-    overflow: auto;
-    text-wrap:wrap;
-    width: 10%;
-    text-wrap:nowrap;
-    overflow:visible;
-}
-#keywords-list{
-    display:inline-block;
-    white-space: nowrap;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 label {
@@ -30,31 +135,20 @@ label {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
 #keyword-h2{
     color: red;
-}
-
-#stock-info{
-    color:#ffffff;
-    font-weight:bold;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#test{
-    display: inline-block;
-    /* flex-direction:row;
-    flex-wrap:wrap; */
-}
-
-#container{
-    
+    text-align:center;
+    margin-bottom:16px
 }
 
 .msg{
+    margin-top:0;
+    margin-bottom:0;
     color:#ffffff;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+
+
+

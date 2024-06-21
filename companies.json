@@ -17,29 +17,41 @@
       "exchange": "Nasdaq",
       "keywords": [
         "American",
-        "Brazilian",
-        "Biotech",
-        "Airline",
-        "Manufacturing"
+        "iphone",
+        "Tech"
       ]
     },
     {
       "id": "1045810",
       "name": "NVIDIA CORP",
       "ticker": "NVDA",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Tech"
+      ]
     },
     {
       "id": "1652044",
       "name": "Alphabet Inc.",
       "ticker": "GOOGL",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Tech",
+        "American",
+        "Tech"
+      ]
     },
     {
       "id": "1018724",
       "name": "AMAZON COM INC",
       "ticker": "AMZN",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Tech"
+      ]
     },
     {
       "id": "1326801",
@@ -50,8 +62,12 @@
     {
       "id": "1067983",
       "name": "BERKSHIRE HATHAWAY INC",
-      "ticker": "BRK-B",
-      "exchange": "NYSE"
+      "ticker": "BRK-A",
+      "exchange": "NYSE",
+      "keywords": [
+        "American",
+        "American"
+      ]
     },
     {
       "id": "1046179",

@@ -93,7 +93,11 @@ async function getStocks(submittedTicker){
         const conRes = await response.json();
         localCompanies = conRes
         foundCompany = localCompanies.find((company)=>
-            company.ticker.toLowerCase() === submittedTicker.target.value.toLowerCase())
+            company.ticker.toLowerCase() === submittedTicker.target.value.toLowerCase());
+    
+    if (foundCompany.keywords === undefined){foundCompany.keywords = []}
+        console.log(foundCompany)
+        // foundCompany.keywords = [foundCompany.keywords]
         stockInput.reset();
         document.querySelector("#stock-info").textContent = foundCompany.name;
         document.querySelector("#stock-keywords").textContent = foundCompany.keywords;
@@ -111,11 +115,17 @@ function applyKeywordsForm(){
 
 function pushKeywords(){
     let nodeList = document.querySelectorAll('input[type=checkbox]:checked');
-    nodeList.forEach((keyword)=> foundCompany.keywords.push(keyword.value))
-    applyKeywordToDb()
-    applyKeywords.reset();
-}
+    nodeList.forEach((nodeListKeyword)=> foundCompany.keywords.push(nodeListKeyword.value))
+    
+    
 
+
+    //console.log(foundCompany);
+    
+        applyKeywordToDb()
+        applyKeywords.reset();
+}
+    
 async function applyKeywordToDb(){
     const settings = {
         method: "PATCH",
