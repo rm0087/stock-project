@@ -50,7 +50,11 @@
       "exchange": "Nasdaq",
       "keywords": [
         "American",
-        "Tech"
+        "Tech",
+        "Chinese",
+        "AWS",
+        "Shipping",
+        "Pharmacy"
       ]
     },
     {
@@ -103,7 +107,13 @@
       "id": "1318605",
       "name": "Tesla, Inc.",
       "ticker": "TSLA",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Manufacturing",
+        "Tech",
+        "Electric vehicles"
+      ]
     },
     {
       "id": "1403161",
@@ -402,7 +412,13 @@
       "id": "78003",
       "name": "PFIZER INC",
       "ticker": "PFE",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "keywords": [
+        "American",
+        "Biotech",
+        "Pharmaceuticals",
+        "Vaccines"
+      ]
     },
     {
       "id": "1089113",
@@ -4314,7 +4330,11 @@
       "id": "1618921",
       "name": "Walgreens Boots Alliance, Inc.",
       "ticker": "WBA",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Pharmacy"
+      ]
     },
     {
       "id": "1331875",
@@ -4734,7 +4754,14 @@
       "id": "1082554",
       "name": "UNITED THERAPEUTICS Corp",
       "ticker": "UTHR",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "American",
+        "Biotech",
+        "Gene Editing",
+        "Gene Therapy",
+        "Pharmaceuticals"
+      ]
     },
     {
       "id": "1668397",
@@ -4980,7 +5007,12 @@
       "id": "1736541",
       "name": "NIO Inc.",
       "ticker": "NIO",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "keywords": [
+        "Chinese",
+        "Manufacturing",
+        "Electric vehicles"
+      ]
     },
     {
       "id": "806968",
@@ -5790,7 +5822,12 @@
       "id": "1163302",
       "name": "UNITED STATES STEEL CORP",
       "ticker": "X",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "keywords": [
+        "American",
+        "Manufacturing",
+        "Steel"
+      ]
     },
     {
       "id": "15615",
@@ -13890,7 +13927,13 @@
       "id": "1731348",
       "name": "Tilray Brands, Inc.",
       "ticker": "TLRY",
-      "exchange": "Nasdaq"
+      "exchange": "Nasdaq",
+      "keywords": [
+        "Marijuana",
+        "Beer",
+        "Alcoholic Beverages",
+        "Canadian"
+      ]
     },
     {
       "id": "1519449",

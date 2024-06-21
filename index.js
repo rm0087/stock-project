@@ -69,8 +69,10 @@ function createNewCheckBox(){
         const newList = document.createElement("ul");
 
         newList.id = "keyword"
+        
         newCheckBox.type = "checkbox";
         newCheckBox.value = localKeyword.id;
+        newCheckBox.id = "keyword-checkbox"
         newLabel.id = localKeyword.id
         newLabel.textContent = localKeyword.id
         
@@ -145,6 +147,8 @@ async function applyKeywordToDb(){
     }
 }
 
-document.querySelector("#keyword-h2").addEventListener("click", (event)=>{
-    alert("Please select a keyword(s)")
-})
+// document.querySelector("#keyword-h2").addEventListener("click", (event)=>{
+//     alert("Please select a keyword(s)")
+// })
+
+const keywordButtons = document.querySelectorAll("#keywords");

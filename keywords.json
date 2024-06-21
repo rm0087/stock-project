@@ -10,7 +10,7 @@
       "id": "Brazilian"
     },
     {
-      "id": "iphone"
+      "id": "iPhone"
     },
     {
       "id": "Indian"
@@ -50,6 +50,87 @@
     },
     {
       "id": "Bulgarian"
+    },
+    {
+      "id": "AWS"
+    },
+    {
+      "id": "Gene Editing"
+    },
+    {
+      "id": "Gene Therapy"
+    },
+    {
+      "id": "Pharmaceuticals"
+    },
+    {
+      "id": "Pharmacy"
+    },
+    {
+      "id": "Supermarket"
+    },
+    {
+      "id": "Groceries"
+    },
+    {
+      "id": "Artificial Intelligence (A.I)"
+    },
+    {
+      "id": "Cloud Services"
+    },
+    {
+      "id": "Data Centers"
+    },
+    {
+      "id": "Chip Foundry"
+    },
+    {
+      "id": "Restaurant"
+    },
+    {
+      "id": "Fast Food"
+    },
+    {
+      "id": "Tobacco"
+    },
+    {
+      "id": "Marijuana"
+    },
+    {
+      "id": "Beer"
+    },
+    {
+      "id": "Liquor"
+    },
+    {
+      "id": "Alcoholic Beverages"
+    },
+    {
+      "id": "Agriculture"
+    },
+    {
+      "id": "Vaccines"
+    },
+    {
+      "id": "Oil"
+    },
+    {
+      "id": "Natural Gas"
+    },
+    {
+      "id": "Fossil Fuels"
+    },
+    {
+      "id": "Coal"
+    },
+    {
+      "id": "Miner (minerals)"
+    },
+    {
+      "id": "Miner (crypto)"
+    },
+    {
+      "id": "Canadian"
     }
   ]
 }
