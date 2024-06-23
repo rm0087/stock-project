@@ -131,6 +131,45 @@
     },
     {
       "id": "Canadian"
+    },
+    {
+      "id": "E-Commerce"
+    },
+    {
+      "id": "Streaming"
+    },
+    {
+      "id": "SPAC"
+    },
+    {
+      "id": "de-SPAC"
+    },
+    {
+      "id": "Financial Services"
+    },
+    {
+      "id": "Insurance"
+    },
+    {
+      "id": "Medical Services"
+    },
+    {
+      "id": "Media Conglomerate"
+    },
+    {
+      "id": "Azure"
+    },
+    {
+      "id": "Made in America"
+    },
+    {
+      "id": "Cryptocurrency"
+    },
+    {
+      "id": "ETF"
+    },
+    {
+      "id": "Payment Processing"
     }
   ]
 }

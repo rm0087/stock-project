@@ -1,4 +1,4 @@
-//must run json-server for COMPANIES.DB on port 3001, and KEYWORDS.DB on port 3000. Must run both simultaneously.
+//must run json-server for COMPANIES.DB on port 3002, and KEYWORDS.DB on port 3000. Must run both simultaneously.
 let localKeywords = []; //Modified in: getKeywordList()
 let localCompanies = []; //Modified in: getStocks()
 let foundCompany = {}; //Modified in: getStocks(), pushKeywords()
@@ -11,6 +11,8 @@ const applyKeywords = document.querySelector("#keywords-form");
 const keywordsList = document.querySelectorAll("ul")
 
 getKeywordList()
+
+//event listener functions
 newKeywordSubmission()
 applyKeywordsForm();
 
@@ -18,7 +20,9 @@ async function getKeywordList(){
     applyKeywords.innerHTML = "";
     localKeywords =[];
     const applyKeywordButton = document.createElement(`input`)
-        applyKeywordButton.value = "Apply Selected Keywords to Company"
+        
+    applyKeywordButton.value = "Apply Selected Keywords to Company"
+        applyKeywordButton.id = "apply-keyword-to-company"
         applyKeywordButton.type = "submit";
         applyKeywords.append(applyKeywordButton);
     try {
@@ -69,7 +73,6 @@ function createNewCheckBox(){
         const newList = document.createElement("ul");
 
         newList.id = "keyword"
-        
         newCheckBox.type = "checkbox";
         newCheckBox.value = localKeyword.id;
         newCheckBox.id = "keyword-checkbox"
@@ -91,7 +94,7 @@ stockInput.addEventListener("submit", (submittedTicker)=>{
 
 async function getStocks(submittedTicker){
     try {
-        const response = await fetch("http://localhost:3001/companies");
+        const response = await fetch("http://localhost:3002/companies");
         const conRes = await response.json();
         localCompanies = conRes
         foundCompany = localCompanies.find((company)=>
@@ -101,11 +104,27 @@ async function getStocks(submittedTicker){
         console.log(foundCompany)
         // foundCompany.keywords = [foundCompany.keywords]
         stockInput.reset();
-        document.querySelector("#stock-info").textContent = foundCompany.name;
-        document.querySelector("#stock-keywords").textContent = foundCompany.keywords;
+        
+
+        let stockInfo = document.querySelector("#stock-info");
+        let stockKeywords = document.querySelector("#stock-keywords");
+        let stockLogo = document.createElement("img")
+        //stockLogo.src = foundCompany.logo;
+        // document.querySelector("#stock-selected").append(stockLogo);
+        stockKeywords.innerHTML = "";
+        stockInfo.textContent = `${foundCompany.name} - (${foundCompany.ticker})`;
+        printCompanyKeywords()
     } catch (error) {
         console.error(error);
     } 
+}
+
+function printCompanyKeywords(){
+    foundCompany.keywords.forEach((keyword)=>{
+        let tickerKeywordLabel = document.createElement("label");
+        tickerKeywordLabel.id = "ticker-keyword"
+        tickerKeywordLabel.textContent = keyword;
+        document.querySelector("#stock-keywords").append(tickerKeywordLabel)});
 }
 
 function applyKeywordsForm(){
@@ -117,15 +136,9 @@ function applyKeywordsForm(){
 
 function pushKeywords(){
     let nodeList = document.querySelectorAll('input[type=checkbox]:checked');
-    nodeList.forEach((nodeListKeyword)=> foundCompany.keywords.push(nodeListKeyword.value))
-    
-    
-
-
-    //console.log(foundCompany);
-    
-        applyKeywordToDb()
-        applyKeywords.reset();
+    nodeList.forEach((nodeListKeyword)=> foundCompany.keywords.push(nodeListKeyword.value));
+    applyKeywordToDb()
+    applyKeywords.reset();
 }
     
 async function applyKeywordToDb(){
@@ -138,10 +151,11 @@ async function applyKeywordToDb(){
         body: JSON.stringify(foundCompany),
     } 
     try {   
-        const response = await fetch(`http://localhost:3001/companies/${foundCompany.id}`,settings)
+        const response = await fetch(`http://localhost:3002/companies/${foundCompany.id}`,settings)
         const keywordResponse = await response.json()
         console.log(`Added keywords to ${keywordResponse.name} DB entry successfully!`);
-        document.querySelector("#stock-keywords").textContent = keywordResponse.keywords;
+        document.querySelector("#stock-keywords").innerHTML = ""
+        printCompanyKeywords()
     } catch (error) {
         console.error(error)
     }
@@ -152,3 +166,10 @@ async function applyKeywordToDb(){
 // })
 
 const keywordButtons = document.querySelectorAll("#keywords");
+
+// document.querySelector("#stock-keywords").textContent = keywordResponse.keywords;
+
+
+
+
+// if (localCompanies.keywords.forEach((keyword=>{foundCompany.keywords.filter((newKeyword)=>{newKeyword!=keyword})}))){foundCompany.push(newKeyword)}

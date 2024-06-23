@@ -1,29 +1,100 @@
+#submit-to-db{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-style:solid;
+    border-color:white;
+    color: #000000;
+    padding: 0px 8px;
+    margin:0 0 !important;
+    background-color: #04AA6D;
+    font-weight:0;
+    font-size: 16px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+
+}
+#submit-to-db:hover{
+    background-color: #1f77a0;
+    color:#000000;
+
+}
+
+#submit-ticker{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-style:solid;
+    border-color:black;
+    color: black;
+    padding: 0px 8px;
+    margin:0 0 !important;
+    background-color: transparent;
+    font-weight:bold;
+    font-size: 14px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+
+#submit-ticker:hover{
+    background-color: #000000;
+    color:#ffffff;
+}
+
+
+
+
 #header-div{
+    justify-content: left;
     background-color: #000000;
     /* vertical-align:top; */
     position: relative; 
-    padding:25px;
+    padding:5px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
 
-button {
-    background-color: #1f77a0;
-    border: none;
-    color: #FFFFFF;
-    padding: 8px 16px;
-    text-align: center;
+#apply-keyword-to-company{
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    margin: 16px 0 !important;
-    text-decoration: none;
+    background-color: #04AA6D;
+    border: none;
+    padding: 16px;
+    margin: 4px 0 !important;
     font-size: 16px;
+    border-radius: 90px;
     cursor: pointer;
-    border-radius: 24px;
+    font-weight:900;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+#apply-keyword-to-company:hover{
+    background-color: #ff8800;
 }
 
 label{
     background-color: #1f77a0;
+    border: none;
+    color: #FFFFFF;
+    padding: 4px 16px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: 4px 4px !important;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 24px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+
+    justify-content:center;
+    align-items: center;
+}
+
+#ticker-keyword{
+    display:inline-block;
+    
+    background-color: #ff8800;
     border: none;
     color: #FFFFFF;
     padding: 4px 16px;
@@ -48,20 +119,23 @@ label:hover {
   }
 
 #titles{
-    margin-left:128px;
+    
+    display:flex;
+    margin-left: 128px;
+    align-items:center;
 }
 
 #h1-title{
-    margin-bottom:8px;
-    font-size: 48px;
+    margin:8px;
+    font-size: 36px;
 }
 #subtitle{
-    margin-top: 8px;
+    margin: 8px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
-    background-color: #0A2347;
+    background-color: #ffffff;
     color: #FFFFFF;
 }
 
@@ -69,30 +143,51 @@ body{
     padding-left: 50px;
     padding-right: 50px;
     /* padding-top: 100px; */
-    overflow: visible;
+    /* overflow: visible; */
     margin-top: 25px;
 }
 
 #ticker-input{
     margin-right:10px;
     margin-top: 10px;
+    border: solid;
+    border-color:#000000;
+    border-radius:4px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
+
+
+#ticker-keyword:hover{
+    background-color:red;
+}
 #stock-selected{
-        
+    display:flex;
+    /* padding-bottom:100px; */
+    
 }
 #stock-info{
-    color:#ffffff;
+    color:#000000;
     font-weight:bold;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 36px;
     margin-top:0px;
+    overflow:hidden;
 
 }
 
+#stock-keywords:{
+    /* display:flex;
+    flex-wrap:wrap; */
+    /* justify-content:center;
+    align-items: center;
+    align-items: flex-start; */
+}
+
 #keywords-div{
-    height:600px;
+    margin-top: 100px;
+    /* height:600px; */
     /* justify-content:center;
     align-items: center; */
     
@@ -109,18 +204,27 @@ body{
 
 #info-div{
     margin-top:25px;
-    margin-bottom:300px;
+    /* margin-bottom:300px; */
 }
 
 #keyword-input{
     margin-left:10px;
     margin-right:10px;
+    border-radius:4px;
+    border: solid;
+    border-color: #ffffff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #input-form{
+    background: #000000;
     justify-content:center;
+    align-items:center;
     display: flex;
-    margin-bottom:8px
+    margin-bottom:8px;
+    padding-bottom: 16px;
+    padding-top:6px;
+    border:none;
 }
 
 #keywords-form{
@@ -159,15 +263,17 @@ label {
 }
 
 #keyword-h2{
-    color: red;
+    background: #000000;
+    color: #FFFFFF;
     text-align:center;
-    margin-bottom:16px
+    padding:16px;
+    margin:0
 }
 
 .msg{
     margin-top:0;
     margin-bottom:0;
-    color:#ffffff;
+    color:#000000;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -179,6 +285,21 @@ label {
     padding:0;
     /* position:absolute; */
 }
+
+/* button {
+    background-color: #1f77a0;
+    border: none;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: 16px 0 !important;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 24px;
+} */
 
 
 

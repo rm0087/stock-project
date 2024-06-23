@@ -9,27 +9,30 @@
     <body>
         <div id="header-div">
             <div id = "titles">  
-                <h1 id="h1-title">META STOCKS</h1>
-                <p id="subtitle">[      Keyword Manager for Meta Stock Search      ]</Keyword></p>
+                <h1 id="h1-title">[META STOCKS]</h1>
+                <p id="subtitle">       Keyword Manager for Meta Stock Search       </Keyword></p>
             </div>
         </div>
         <div id = "container">
             <!-- <button class ="button5" type="button">Click Me!</button> -->
             
             <div id = "input-div">
-                <p id="ticker-msg" class = "msg">Enter valid ticker symbol below (MSFT, AAPL, BRK-A, etc...)</p>
+                <p id="ticker-msg" class = "msg">Ticker symbol must be valid: (MSFT, AAPL, BRK-A, etc...)</p>
                     <form id ="ticker-form">
-                        <input id ="ticker-input" type = "text" value ="">
-                        <input type="submit" value="Go to ticker"></input>
+                        <input id ="ticker-input" type = "text" value ="" placeholder="Enter ticker">
+                        <input type="submit" value="GO" id="submit-ticker"></input>
                     </form>
             </div>
             
             <div id="info-div">
                 <div id ="stock-selected">
+                    
                     <p id ="stock-info">[Enter ticker]</p>
-                    <p id ="stock-keywords">[Keywords will appear here]</p>
-                </div>    
+                    
+                </div>  
+                <div id ="stock-keywords">
 
+                </div>  
             </div>
             
             <div id = "keywords-div">
@@ -38,9 +41,9 @@
                     <h2 id="keyword-h2">Keyword Database</h2>
                     <div id = "input-form-div">
                         <form id ="input-form">
-                            <p id ="add-keyword-p"class = "msg">Add a keyword to the keyword database:</p>
-                            <input id ="keyword-input" type = "text">
-                            <input  type="submit" value="Add to keyword db"></input>
+                            
+                            <input id ="keyword-input" type = "text" placeholder="Add keyword to database">
+                            <input  type="submit" value=" + " id = "submit-to-db"></input>
                         </form>
                     </div>
                     <form id = "keywords-form">
