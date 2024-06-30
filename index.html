@@ -1,60 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Stocks</title>
-        <link rel="stylesheet" href = "style.css">
-    </head>
-
-    <body>
-        <div id="header-div">
-            <div id = "titles">  
-                <h1 id="h1-title">[META STOCKS]</h1>
-                <p id="subtitle">       Keyword Manager for Meta Stock Search       </Keyword></p>
-            </div>
-        </div>
-        <div id = "container">
-            <!-- <button class ="button5" type="button">Click Me!</button> -->
-            
-            <div id = "input-div">
-                <p id="ticker-msg" class = "msg">Ticker symbol must be valid: (MSFT, AAPL, BRK-A, etc...)</p>
-                    <form id ="ticker-form">
-                        <input id ="ticker-input" type = "text" value ="" placeholder="Enter ticker">
-                        <input type="submit" value="GO" id="submit-ticker"></input>
-                    </form>
-            </div>
-            
-            <div id="info-div">
-                <div id ="stock-selected">
-                    
-                    <p id ="stock-info">[Enter ticker]</p>
-                    
-                </div>  
-                <div id ="stock-keywords">
-
-                </div>  
-            </div>
-            
-            <div id = "keywords-div">
-                
-                <div id = "list-form-div">
-                    <h2 id="keyword-h2">Keyword Database</h2>
-                    <div id = "input-form-div">
-                        <form id ="input-form">
-                            
-                            <input id ="keyword-input" type = "text" placeholder="Add keyword to database">
-                            <input  type="submit" value=" + " id = "submit-to-db"></input>
-                        </form>
-                    </div>
-                    <form id = "keywords-form">
-                        <ul id = "keywords-list" class = "keywords-class">
-                        </ul>
-                        
-                    </form>
-                </div>
-            </div>   
-
-        </div><!--end #container  -->
-    </body>
-    <script defer type="module" src="./index.js"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaStocks</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
